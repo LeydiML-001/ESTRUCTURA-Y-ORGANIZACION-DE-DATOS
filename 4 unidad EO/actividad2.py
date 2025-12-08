@@ -1,117 +1,192 @@
-#metodos de busqueda(busqueda de listas)
-#in
-def nu():
-    num=[1,2,3,4]
-    print(num)
-    y=input("ingresa el numero que quieres buscar:")
-    print(y)
-nu()
+def listain():
+    n=[1,2,3,4]
+    print(n)
+    n1=int(input("Ingresa el numero que quieres buscar "))
+    print(n1 in n)
 
-#index
-def r():
-    li=[2,4,6,9]
-    print(li)
-    li=int(input("ingre el numero que quieras buscar:"))
-print(r)
-r()
-
-#bucles
-def bucles():
-    buc=[1,2,3,4,5,6]
-    print(buc)
-    buc=input("ingres el numero que quieras buscar:")
-    print(bucles)
-bucles()
-
-#busqueda con compresion
-def compresion():
-    lista3=[2,4,6,8,9,5]
-    print(lista3)
-    posicion=input("ingresa el numero que quieras buscar:")
-    print(posicion in lista3)
-compresion()
-
-#busueda de cadenas(strings)
-#.find() 
-def find():
-    s="python es el mejor"
-    print(s)
-    busqueda=input("ingresa el numero que quieras buscar:")
-    print(s.find(busqueda))
-find()
-
-#.index
 def index():
-    o="hola mundo"
-    print(o)
-    letras=input("ingresa el numero que quieras buscar:")
-    print(o.index(letras))
-index()
+    a=[2,4,6,8,9]
+    print(a)
+    a2=int(input("Ingresa el numero que quieres buscar "))
+    print(a.index(a2))
 
-#statswith
-def starswith():
-    m="programacion"
-    print(m)
-    palabras=input("ingresa el numero que quieras buscar:")
-    print(m.startswith(palabras))
+def bucle():
+    num1=[1,2,3,4,5,6,7,8,9]
+    print(num1)
+    n3=int(input("Ingresa el numero que quieres buscar "))
+    for n3 in num1:
+        if n3==input:
+            print("Numero encontrado")
 
-#endswith
-def endswith():
-    u="caracteres"
-    print(u)
-    d1=input("ingresa el numero que quieras buscar:")
-    print(u.endswith(d1))
-endswith()
+def compresion():
+    lista0=[2,4,6,8,9]
+    print(lista0)
+    encontrar2=int(input("Ingresa el numero que quieras saber la posicion "))
+    posicion=[i for i, x in enumerate(lista0) if x>encontrar2]
+    print("estas son las pocisiones que tiene la lista: ", posicion)
 
-#busqueda por diccionarios
-def diccionarios():
-    f={"g":1, "h":2}
-    print(f)
-    d2=input("ingresa el numero que quieras buscar:")
-    print(f.get(d2))
-diccionarios()
+def find ():
+    i= "python es el mejor"
+    print("La oracion es:", i)
+    buscar1=input("Ingresa la palabra que quieras encontrar conforme a la oracion: ")
+    print(i.find(buscar1))
 
-#busqueda por valores
-def valores():
-    j={"b":12, "c":14}
-    print(j)
-    d3=input("ingresa el numero que quieras buscar:")
-    print(d3 in j)
-valores()
+def index1():
+    m="hola mundo"
+    print("La oracion es:", m)
+    buscar2=input("Ingresa la palabra que quieres buscar en la oración: ")
+    print(m.index(buscar2))
 
-#busqueda por archivos
-def archivos():
-    archivos="arboles.txt"
-    print(archivos)
-    archivos=input("ingresa el numero que quieras buscar:")
-    print("encontrado",archivos.strip())
-archivos()
+def startwith():
+    m3="programar es mi pasion"
+    print(m3)
+    buscar3=input("Ingresa las primeras letras de la oracion: ")
+    print(m3.startswith(buscar3))
 
-#BUSQUEDA AVANZADA
-def busqueda_avanzada():
-    metodo=[1,2,4,6]
-    print(metodo)
-    ps=input("ingresa el numero que quieras buscar:")
-    print(ps)
-busqueda_avanzada()
+def endwith():
+    m4="programar es mi pasion"
+    print(m4)
+    buscar4=input("Ingresa las ultimas letras de la oracion: ")
+    print(m4.endswith(buscar4))
+
+def diccionario ():
+    d= {"a":1,"b":2,"c":3,"d":4,"e":5}
+    print(d)
+    encontrar=input("Ingresa la letras para saber que valor tiene entre comillas")
+    print(d.get(encontrar))
+
+def busqueda1():
+    d1= {"x":10,"y":20}
+    print(d1)
+    encontrar1=input("Ingresa la letra para imprimir los valores que tienen las claves")
+    buscar5=[k for k, v in d1.items() if v == encontrar1]
+    print(buscar5)
+
+import bisect
+def bs():
+    lista1=[1,2,3,4,5,6,7]
+    print(lista1)
+    bis=int(input("Ingresa un numero para encontrar su posicion(bisect): "))
+    pos=bisect.bisect_left(lista1, bis) 
+    print(pos)
+
+grafo={
+    "A":["B","C"],
+    "B":["D"],
+    "C":[],
+    "D":[]
+}
+def dfs(nodo):
+    print(nodo)
+    for vecino in grafo[nodo]:
+        dfs(vecino)
  
+
 def menu():
     while True:
-        print("--- MENÚ DE ORDENAMIENTO ---")
+        print("---Menu de mi ordeamiento---")
         print("1. Busqueda de listas")
-        print("2. Busqueda de cadenas")
-        print("3. busqueda de valores")
-        print("4. Busqueda de archivos")
-        print("5. Método de busqueda organizada")
-        print("6. Salir")
+        print("2. Busquedas de cadenas")
+        print("3. Busqueda por diccionarios")
+        print("4. Buqueda avanzada")
+        print("5. Salir")
+        opcion=input("Selecciona una opcion(1-5): ")
 
-        opcion = input("Selecciona una opción (1-6): ")
+        if opcion=="1":
+             while True:
+                print("---Menu de Busqueda de listas---")
+                print("1. In")
+                print("2. Index")
+                print("3. Bucles")
+                print("4. Con comprensión")
+                print("5. Salir")
 
-        if opcion == "1":
+                sub=input("Selecciona una opcion(1-5): ")
+
+                if sub=="1":
+                    listain()
+
+                elif sub=="2":
+                    index()
+
+                elif sub=="3":
+                    bucle()
+
+                elif sub=="4":
+                    compresion()
+
+                elif sub=="5":
+                 print("Saliste del programa")
+                 break
+
+        elif opcion=="2":
+            
+             while True:
+                print("---Menu de Busquedas de cadenas---")
+                print("1. Find")
+                print("2. Index")
+                print("3. Startwith")
+                print("4. Endwith")
+                print("5. Salir")
+
+                sub=input("Selecciona una opcion(1-5): ")
+
+                if sub=="1":
+                    find()
+
+                elif sub=="2":
+                    index1()
+
+                elif sub=="3":
+                    startwith()
+
+                elif sub=="4":
+                    endwith()
+
+                elif sub=="5":
+                 print("Saliste del programa")
+                 break
+
+        elif opcion=="3":
             while True:
-                y=input("ingresa el numero que quieres buscar:")
-                print(y in nu)
+                print("---Menu de Busqueda por diccionarios---")
+                print("1. Busqueda de diccionario")
+                print("2. Busqueda de valores")
+                print("3. Salir")
 
-          
+                sub=input("Selecciona una opcion(1-5): ")
+
+                if sub=="1":
+                    diccionario()
+
+                elif sub=="2":
+                    busqueda1()
+                
+                elif sub=="3":
+                 print("Saliste del programa")
+                 break
+
+        elif opcion=="4":
+            while True:
+                print("---Menu de Buqueda avanzada---")
+                print("1. Busqueda de bs")
+                print("2. Busqueda de dfs")
+                print("3. Salir")
+
+                sub=input("Selecciona una opcion(1-5): ")
+
+                if sub=="1":
+                    bs()
+
+                elif sub=="2":
+                    dfs("A")  
+
+                elif sub=="3":
+                 print("Saliste del programa")
+                 break
+
+        elif opcion=="5":
+            print("Saliste del programa")
+            break       
 if __name__ == "__main__":
-    menu()
+ menu()
